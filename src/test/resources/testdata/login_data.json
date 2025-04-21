@@ -1,0 +1,61 @@
+{
+  "valid_logins": [
+    {
+      "username": "standard_user",
+      "password": "secret_sauce",
+      "expected_result": "success",
+      "description": "Standard user login"
+    },
+    {
+      "username": "problem_user",
+      "password": "secret_sauce",
+      "expected_result": "success",
+      "description": "Problem user login"
+    },
+    {
+      "username": "performance_glitch_user",
+      "password": "secret_sauce",
+      "expected_result": "success",
+      "description": "Performance glitch user login"
+    }
+  ],
+  "invalid_logins": [
+    {
+      "username": "locked_out_user",
+      "password": "secret_sauce",
+      "expected_result": "error",
+      "error_message": "Sorry, this user has been locked out.",
+      "description": "Locked out user login"
+    },
+    {
+      "username": "invalid_user",
+      "password": "wrong_password",
+      "expected_result": "error",
+      "error_message": "Username and password do not match any user in this service",
+      "description": "Invalid credentials login"
+    },
+    {
+      "username": "",
+      "password": "",
+      "expected_result": "error",
+      "error_message": "Username is required",
+      "description": "Empty credentials login"
+    }
+  ],
+  "special_cases": [
+    {
+      "username": "standard_user",
+      "password": "SECRET_SAUCE",
+      "expected_result": "error",
+      "error_message": "Username and password do not match any user in this service",
+      "description": "Case sensitive password test"
+    },
+    {
+      "username": "standard_user ",
+      "password": "secret_sauce",
+      "expected_result": "error",
+      "error_message": "Username and password do not match any user in this service",
+      "description": "Username with trailing space"
+    }
+  ]
+}
